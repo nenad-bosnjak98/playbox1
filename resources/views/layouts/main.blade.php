@@ -11,9 +11,10 @@
     @livewireStyles
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 </head>
-<body class="font-mono bg-gray-900 text-white">
+<body class="font-mono bg-gray-900 text-white mb-3">
 
     @include('inc.navbar')
+    @include('inc.messages')
     @yield('content')
     @livewireScripts
     @yield('scripts')
