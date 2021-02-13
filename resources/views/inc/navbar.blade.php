@@ -7,7 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <nav class="border-b  border-gray-800">
+    <nav class="z-10 border-b border-gray-800 bg-gray-600" x-data="scrollToReveal()" 
+    x-ref="navbar"
+    x-on:scroll.window="scroll()"
+    x-bind:class="{
+                  'sticky top-0': sticky,
+                  'relative': !sticky,
+                  }">
         <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-4 py-6">
             <ul class="flex flex-col md:flex-row items-center text-xl">
                 <li>
@@ -29,7 +35,54 @@
             <div class="flex items-center">
                 @livewire('search-dropdown')
             </div>
+            <ul class="flex flex-col md:flex-row items-center text-xl">
+            @guest
+                            @if (Route::has('login'))
+                                <li class="-ml-48 -mr-14 hover:text-blue-500">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+                            
+                            @if (Route::has('register'))
+                                <li class="ml-24 hover:text-red-500">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                        <ul>
+
         </div>
     </nav>
 </body>
+
+<script>
+    function scrollToReveal() {
+  return {
+    sticky: false,
+    lastPos: window.scrollY + 0,
+    scroll() {
+      this.sticky = window.scrollY > this.$refs.navbar.offsetHeight && this.lastPos > window.scrollY;
+      this.lastPos = window.scrollY;
+    }
+  }
+}
+</script>
 </html>
