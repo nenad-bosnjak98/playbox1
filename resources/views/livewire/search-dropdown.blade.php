@@ -2,7 +2,7 @@
     <input 
     wire:model.debounce.500ms="search" 
     type="text" 
-    class="bg-gray-800 text-2xl rounded-full w-76 pl-8 px-4 py-1 focus:outline-none focus:shadow-outline" 
+    class="bg-gray-800 text-2xl rounded-full w-72 ml-12 pl-8 px-3 py-1 focus:outline-none focus:shadow-outline" 
     placeholder="Search"
     x-ref="search"
         @keydown.window="
@@ -17,7 +17,7 @@
         @keydown.shift.tab="isOpen = false"
     >
     <div class="absolute top-0">
-        <i class="fas fa-search mt-3 ml-2"></i>
+        <i class="fas fa-search mt-3 ml-14"></i>
     </div>
 
     <div wire:loading class="spinner top-0 right-0 mr-6 mt-5 text-2xl"></div>

@@ -30,7 +30,7 @@
                         <div class="w-full sm:w-1/2 md:w-2/4 px-3 text-left">
                             <div class="p-5 xl:px-8 md:py-5">
                                 <h3 class="text-2xl"><a href="/posts/{{$post->id}}"> {{$post->title}} </a></h3>
-                                <h5 class="text-xl mb-3">Posted by ....... at {{$post->created_at}}</h5>
+                                <h5 class="text-xl mb-3">Posted by {{$post->user->name}} at {{$post->created_at}}</h5>
                                 <p class="text-sm text-indigo-200">{{add3dots($post->body, "...", 60)}}</p>
                             </div>
                         </div>

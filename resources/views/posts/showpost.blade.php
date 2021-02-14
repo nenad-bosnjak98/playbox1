@@ -16,7 +16,7 @@ padding-right:3%">
    <!-- <div><img style="box-sizing: border-box; width:100%; height: 300%" src="../storage/cover_images/"></div>  -->
     <div class="mb-7 pt-4 text-4xl"><h1>{{$post->title}} <hr></h1></div>
     <div class="mb-6">{{$post->body}}</div><hr>
-    <small style="padding-bottom: 2%">Written on: {{$post->created_at}} </small>
+    <small style="padding-bottom: 2%">Posted by {{$post->user->name}} at {{$post->created_at}}</small>
 </div>
 
 
