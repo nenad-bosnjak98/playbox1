@@ -31,7 +31,7 @@ margin-right: 53.4%;" href="/posts/{{$post->id}}/edit">Edit Post</a>
 </div>
 @endif
 @endif
-
+<!--
 <div id="disqus_thread" style="margin-left: 14%; margin-right: 14%; margin-top: 3%"></div>
 <script>
     /**
@@ -50,5 +50,27 @@ margin-right: 53.4%;" href="/posts/{{$post->id}}/edit">Edit Post</a>
     (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> -->
+<hr style="margin-left:14%;margin-right: 14%;margin-top:1%">
+@if (Auth::guest())
+    <p style="text-align: center; margin-top:8%; font-size:30px">You need to be logged in to see the comments!</p>
+@endif
+@if (!Auth::guest())
+<h2 class="underline" style="margin-left: 14%; margin-top:0.5%; margin-bottom:1%">Comments</h2>
+  
+    @include('posts.commentsDisplay', ['comments' => $post->comments, 'post_id' => $post->id])
+
+    <hr style="margin-left:14%;margin-right: 14%;margin-top:1%">
+    <h4 class="underline" style="margin-left:14%;margin-top:0.6%">Add comment</h4>
+        <form method="post" action="{{route('comments.store')}}">
+            @csrf
+            <div class="form-group">
+                    <textarea class="form-control text-black" name="body" style="margin-left:14%;margin-top:0.6%; width:71.9%" placeholder="Want to join the conversation?"></textarea>
+                    <input type="hidden" name="post_id" value="{{ $post->id }}" />
+            </div>
+            <div class="form-group">
+                    <input placeholder="Want to join the conversation?" type="submit" class="btn btn-success px-2 py-1 bg-red-400" value="Add Comment" style="margin-left: 14%" />
+            </div>
+        </form>
+@endif
 @endsection

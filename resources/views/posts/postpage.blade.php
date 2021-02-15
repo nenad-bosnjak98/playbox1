@@ -36,8 +36,7 @@
                         </div>
                         <div class="w-full sm:w-1/2 md:w-1/4 px-3 text-center">
                             <div class="p-5 xl:px-8 md:py-5">
-                                <a class="block w-full py-2 px-4 rounded text-indigo-600 bg-gray-200 hover:bg-white hover:text-gray-900 focus:outline-none transition duration-150 ease-in-out mb-3" href="https://codepen.io/ScottWindon" target="_blank">Find out more?</a>
-                                <button class="w-full py-2 px-4 rounded text-white bg-indigo-900 hover:bg-gray-900 focus:outline-none transition duration-150 ease-in-out" @click.prevent="welcomeMessageShow=false;setTimeout(()=>{welcomeMessageShow=true},2000)">No thanks</button>
+                                <a class="block w-full py-2 px-4 rounded text-indigo-600 bg-gray-200 hover:bg-white hover:text-gray-900 focus:outline-none transition duration-150 ease-in-out mb-3" href="/posts/{{$post->id}}">View Discussion</a>
                             </div>
                         </div>
                     </div>
