@@ -11,10 +11,10 @@
             {{Form::label('body', 'Body')}}
             {{Form::textarea('body', $post->body, ['id' => 'article-ckeditor', 'class' => ['form-control', 'flex', 'pl-1', 'bg-blue-300', 'text-black', 'placeholder-indigo-600'], 'placeholder' => 'Start a discussion!'])}}
         </div>
-        <!--
-        <div class="form-group">
+        
+        <div class="form-group" style="margin-left:36.5%; margin-top:0.6%">
             {{Form::file('cover_image')}}
-        </div> -->
+        </div> 
         {{Form::hidden('_method','PUT')}}
         <div style="margin-left: 36.5%" class="mt-3 rounded">
         {{Form::submit('Submit', ['class'=>['btn btn-primary', 'bg-blue-500', 'pr-2', 'pl-2', 'rounded', 'pt-1', 'pb-1', 'text-red-400', 'cursor-pointer']])}}

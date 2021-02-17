@@ -24,7 +24,7 @@
                     <div class="flex flex-wrap -mx-3 items-center">
                         <div class="w-1/4 px-3 text-center hidden md:block">
                             <div class="p-5 xl:px-8 md:py-5">
-                                
+                               <a href="/posts/{{$post->id}}"> <img class="rounded" style="width:100%" src="/storage/cover_images/{{$post->cover_image}}"></a>
                             </div>
                         </div>
                         <div class="w-full sm:w-1/2 md:w-2/4 px-3 text-left">
@@ -49,6 +49,6 @@
             {{$posts->links()}}
         </div>
     @else 
-        <p>No posts found!</p>
+        <p style="margin-left: 44%; font-size:30px; margin-top:16%">No posts found!</p>
     @endif
 @endsection
